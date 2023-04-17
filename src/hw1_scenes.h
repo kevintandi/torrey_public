@@ -218,8 +218,44 @@ Scene hw1_scene_4{
     }
 };
 
+
+Scene hw1_scene_5{ // Render of evil suprised bear
+    Camera{
+        Vector3{0, 0,  5}, // lookfrom
+        Vector3{0, 0, -1}, // lookat
+        Vector3{0, 1,  0}, // up
+        110                 // vfov
+    },
+    std::vector<Sphere>{
+        {Vector3{ 0.0, -100.5, -30.0}, 100.0, 0}, // Body
+        {Vector3{ 0.0,  3., -24.0}, 20.0, 0}, // Face
+        {Vector3{ -1.0, 7.0, -3.0},   0.5, 2}, // L eye
+        {Vector3{ 1.0,  7.0, -3.0},   0.5, 3}, // R eye
+        {Vector3{0.0,    4.5, -3.0},   0.5, 4},  // Nose 
+        {Vector3{0.0,    1.0, -3.0},   2.2, 5},  // Mouth 
+        {Vector3{-7.,    9., -11.0},   6, 1},  // L ear
+        {Vector3{7.,    9., -11.0},   6, 1}   // R ear 
+    },
+    std::vector<Material>{
+        {MaterialType::Diffuse, Vector3{0.80, 0.80, 0.20}},
+        {MaterialType::Diffuse, Vector3{0.99, 0.99, 0.99}}, //ears
+        {MaterialType::Mirror , Vector3{0.8, 0., 0.}},
+        {MaterialType::Mirror , Vector3{0.8, 0., 0.}},
+        {MaterialType::Mirror , Vector3{0., 0., 0.}}, 
+        {MaterialType::Mirror , Vector3{0., 0., 0.}},
+        {MaterialType::Diffuse, Vector3{0.8, 0.8, 0.2}},
+        {MaterialType::Diffuse, Vector3{0.8, 0.8, 0.2}},
+    },
+    std::vector<PointLight>{
+        {Vector3{100, 100, 100}, Vector3{ 0, 0,  3}},
+        {Vector3{ 10,  10,  10}, Vector3{-5, 5,  1}},
+        // {Vector3{  2,   2,   2}, Vector3{ 0, 5, -5}}
+    }
+}; 
+
+
 Scene hw1_scenes[] = {
-    hw1_scene_0, hw1_scene_1, hw1_scene_2, hw1_scene_3, hw1_scene_4
+    hw1_scene_0, hw1_scene_1, hw1_scene_2, hw1_scene_3, hw1_scene_4, hw1_scene_5 
 };
 
 }
